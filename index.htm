@@ -215,8 +215,7 @@ box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
 <!-- PASSWORD SCREEN -->
 
 <div id="passwordScreen">
-    <h2>Enter Password
-    hint: when it all started (dd/mm/yy) </h2>
+    <h2>Enter Password (dd/mm/yy) </h2>
     <input type="password" id="passwordInput" placeholder="Enter password">
     <button onclick="checkPassword()">Enter</button>
 </div>
@@ -346,13 +345,24 @@ This is the part where I tell you the things I don’t always say out loud…
 
 /* PASSWORD = 010126 */
 
+let wrongAttempts = 0;
+
 function checkPassword() {
     var password = document.getElementById("passwordInput").value;
+
     if (password === "010126") {
         document.getElementById("passwordScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
     } else {
-        alert("Wrong password 💌");
+        wrongAttempts++;
+
+        if (wrongAttempts === 1) {
+            alert("Wrong password 💌");
+        } else if (wrongAttempts === 2) {
+            alert("Hint: it’s a speciaaal date…");
+        } else {
+            alert("It’s the day everything started 🤍");
+        }
     }
 }
 
