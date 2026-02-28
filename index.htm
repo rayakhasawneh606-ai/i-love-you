@@ -4,10 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title>Open Me When</title>
+<title>Open Me When</title>
 
 <style>
- 
+/* ===========================
+   PAGE & LETTER STYLING
+=========================== */
+body {
+    background: linear-gradient(to bottom, #ffeef3, #ffd6e0 70%);
+    margin: 0;
+    font-family: 'Georgia', serif;
+    text-align: center;
+}
 
 .dim-background {
     position: fixed;
@@ -20,51 +28,140 @@
     display: none;
 }
 
- .letter-page {
+.letter-page {
+    display: none;
     text-align: left;
     max-width: 700px;
     margin: 0 auto;
+    background: #fff6f9;
+    min-height: 100vh;
+    padding: 60px 30px;
 }
 
 .letter-page h2 {
     text-align: center;
 }
-.secret {
-    background: #e7b6ff;
-    box-shadow: 0 8px 25px rgba(180, 120, 255, 0.4);
-    animation: shake 3s infinite;
+
+.back-btn {
+    margin-top: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #f8c8dc;
 }
 
-@keyframes shake {
-    0% { transform: rotate(0deg); }
-    2% { transform: rotate(2deg); }
-    4% { transform: rotate(-2deg); }
-    6% { transform: rotate(2deg); }
-    8% { transform: rotate(0deg); }
-    100% { transform: rotate(0deg); }
-}
- 
-  .emergency {
-    background: #ffd6e0;
-    border: 2px solid #ff6b9d;
-    animation: pulse 2s infinite;
+/* ===========================
+   ENVELOPES
+=========================== */
+
+.flower-burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    pointer-events: none;
 }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 0px rgba(255,107,157,0.4); }
-    50% { box-shadow: 0 0 20px rgba(255,107,157,0.7); }
-    100% { box-shadow: 0 0 0px rgba(255,107,157,0.4); }
-}  
-    
-    .secret {
-    background: #e7b6ff;
-    box-shadow: 0 8px 25px rgba(180, 120, 255, 0.4);
+.flower {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: url('https://i.ibb.co/YX0tVqY/heart-tulip.png') no-repeat center/contain;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    animation: flowerPop 1s ease forwards;
+    filter: hue-rotate(320deg) saturate(1.4); /* makes them pinkish */
 }
-    .page-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
+
+@keyframes flowerPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1);
+    }
 }
+
+.envelope {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    background: #f8c8dc;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
+}
+
+.envelope-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(135deg, #f4a9c7, #ffb6d5);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transition: transform 0.5s ease;
+    transform-origin: top;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.envelope:hover::before {
+    transform: rotateX(180deg);
+}
+
+.envelope span {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    z-index: 2;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    pointer-events: none;
+}
+
+/* ===========================
+   STAMP / CENTER DECOR
+=========================== */
+.envelope .stamp {
+    position: absolute;
+    top: 50%;         
+    left: 50%;        
+    transform: translate(-50%, -50%); /* centers in envelope */
+    width: 50px;      /* adjust size if needed */
+    height: 50px;
+    background: url('https://i.ibb.co/YX0tVqY/heart-tulip.png') no-repeat center/contain; 
+    pointer-events: none;
+}
+
+/* ===========================
+   CONSTRUCTION BOX
+=========================== */
 .construction {
     margin-top: 80px;
     display: flex;
@@ -91,268 +188,102 @@
     font-size: 16px;
 }
 
-.sparkles {
-    font-size: 20px;
-}
-
 @keyframes floaty {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-6px); }
     100% { transform: translateY(0px); }
 }
-   
-/* ===========================
-   🌸 COLOR CUSTOMIZATION AREA
-   Change these to adjust vibe
-=========================== */
-
-:root {
-    --background-color: #ffeef3; /* MAIN PAGE BACKGROUND */
-    --letter-background: #fff6f9; /* LETTER PAGE BACKGROUND */
-    --envelope-color: #f8c8dc; /* ENVELOPE BODY */
-    --flap-color: #f4a9c7; /* ENVELOPE FLAP */
-    --text-color: #5a3e4d; 
-}
-
-/* =========================== */
-
-body {
-    background: linear-gradient(to bottom, #ffeef3, #ffd6e0 70%);
-    margin: 0;
-font-family: 'Georgia', serif;
-    text-align: center;
-}
-
-/* PASSWORD SCREEN */
-
-#passwordScreen {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--background-color);
-    flex-direction: column;
-}
-
-input {
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    margin-top: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    margin-top: 15px;
-    cursor: pointer;
-    background: var(--envelope-color);
-}
-
-h1 {
-    margin-top: 60px;
-}
-
-/* ENVELOPES */
-
-.envelope {
-    position: relative;
-    width: 320px;
-    height: 120px;
-    margin: 45px auto;
-    background: var(--envelope-color);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
-}
-
-.envelope:hover {
-    transform: scale(1.05);
-}
-
-    .envelope::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: linear-gradient(135deg, #f4a9c7, #ffb6d5);
-    clip-path: polygon(0 0, 50% 100%, 100% 0);
-    transition: transform 0.5s ease;
-    transform-origin: top;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.envelope::before { 
-    /* existing flap styles remain */
-}
-.envelope .stamp {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* centers it */
-    width: 40px; /* adjust size */
-    height: 40px;
-    background: url('petal.png') no-repeat center/contain; /* replace with your heart tulip image */
-    pointer-events: none;
-}
-
-
-.envelope span {
-    position: absolute;
-    top: 18px; /* moves text into triangle */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    font-weight: bold;
-    z-index: 2;
-    color: white;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    pointer-events: none;
-}
-
-/* Decoration image area inside envelope */
-.envelope img {
-    position: absolute;
-    bottom: 5px;
-    right: 10px;
-    width: 30px;
-}
-.envelope .stamp {
-    position: absolute;
-    top: 50%;         /* vertical center */
-    left: 50%;        /* horizontal center */
-    transform: translate(-50%, -50%); /* center exactly */
-    width: 40px;      /* adjust size as you like */
-    height: 40px;
-    background: 🎀
-    pointer-events: none;  /* so clicks go through */
-}
-
-.letter-page {
-    display: none;
-    background: var(--letter-background);
-    min-height: 100vh;
-    padding: 60px 30px;
-}
-
-.back-btn {
-    margin-top: 40px;
-}
-
-
 </style>
 </head>
 
 <body>
-
 <div id="dimBg" class="dim-background"></div>
 
 <!-- PASSWORD SCREEN -->
-
 <div id="passwordScreen">
-    <h2>Enter Password (dd/mm/yy) </h2>
+    <h2>Enter Password (dd/mm/yy)</h2>
     <input type="password" id="passwordInput" placeholder="Enter password">
     <button onclick="checkPassword()">Enter</button>
 </div>
 
 <!-- MAIN CONTENT -->
-
 <div id="mainContent" style="display:none;">
-<div class="page-container">
-
-<h1>Open Me When</h1>
-
-<!-- ENVELOPE 1 -->
-<div class="envelope" onclick="openLetter('miss')">
-    <span>When you miss me</span>
-
-    <!-- 🌸 Add decoration image here -->
-    <!-- Replace src with your own image -->
-    
-
-<div class="stamp"></div> 
-</div>
+    <h1>Open Me When</h1>
 
 
+<div class="envelope-grid">
+
+    <!-- ENVELOPES -->
+    <div class="envelope" onclick="triggerEnvelope('miss')">
+        <span>When you miss me</span>
+        <div class="stamp"></div>
+
+<div class="flower-burst"></div>
+
+    </div>
+
+    <div class="envelope" onclick="triggerEnvelope('bad')">
+        <span>When you have a bad day</span>
+        <div class="stamp"></div>
+
+<div class="flower-burst"></div>
+
+    </div>
+
+    <div class="envelope" onclick="triggerEnvelope('mad')">
+        <span>When you're mad</span>
+        <div class="stamp"></div>
+
+<div class="flower-burst"></div>
+
+    </div>
 
 
-<!-- ENVELOPE 2 -->
-<div class="envelope" onclick="openLetter('bad')">
-    <span>When you have a bad day</span>
+    <div class="envelope" onclick="triggerEnvelope('sad')">
+        <span>When you're sad</span>
+        <div class="stamp"></div>
 
+<div class="flower-burst"></div>
 
-<div class="stamp"></div> </div>
+    </div>
 
-<!-- ENVELOPE 3 -->
-<div class="envelope" onclick="openLetter('mad')">
-    <span>When you're mad</span>
-    
+    <div class="envelope" onclick="triggerEnvelope('sleep')">
+        <span>When you can't sleep</span>
+        <div class="stamp"></div>
 
-<div class="stamp"></div> 
+<div class="flower-burst"></div>
 
+    </div>
 
-</div>
+    <div class="envelope emergency" onclick="triggerEnvelope('emergency')">
+        <span>Open in case of emotional emergency</span>
+        <div class="stamp"></div>
 
-<!-- ENVELOPE 4 -->
-<div class="envelope" onclick="openLetter('sad')">
-    <span>When you're sad</span>
-    
+<div class="flower-burst"></div>
 
-<div class="stamp"></div> 
+    </div>
 
-</div>
-
-<!-- ENVELOPE 5 -->
-<div class="envelope" onclick="openLetter('sleep')">
-    <span>When you can't sleep</span>
-    
- 
-
-<div class="stamp"></div> 
-
-
-</div>
-    
-<div class="envelope emergency" onclick="openLetter('emergency')">
-    <span>Open in case of emotional emergency</span>
-
-<div class="stamp"></div> 
-
-</div>
-    
     <div class="envelope secret" onclick="unlockSecret()">
-    <span>???</span>
+        <span>???</span>
+        <div class="stamp"></div>
 
-<div class="stamp"></div> 
+<div class="flower-burst"></div>
 
+    </div>
 </div>
-    
-
-
-<!-- 🚧 CONSTRUCTION AREA -->
-<div class="construction">
-    <div class="cute-box">
-        <h3>💌 Coming Soon 💌</h3>
-        <p> OOPS! more letters unlocking next month...</p>
-        <div class="sparkles">🌷🌷🌷</div>
+    <!-- CONSTRUCTION BOX -->
+    <div class="construction">
+        <div class="cute-box">
+            <h3>💌 Coming Soon 💌</h3>
+            <p> OOPS! more letters unlocking next month...</p>
+            <div class="sparkles">🌷🌷🌷</div>
+        </div>
     </div>
 </div>
 
 
-</div> 
-</div>
 
-<!-- LETTER PAGES -->
-
-<div id="miss" class="letter-page">
-
-<h2>When You Miss Me</h2>
+<script <h2>When You Miss Me</h2>
 <p>  If you’re missing me nownownow then that honestly makes my heart ache in the bestest way ever because It means what we have is real enough to be felt when we’re apart. It means I matter to you and that’s means the whole world to me. woaaah i matter to my boyfriend YAYAYAYYAYA AWHHH MY BABYY 
 <br>
 But don’t let missing me turn scary i promise ill be back oky. 😡😡 but baby a teenie weenie reminder that I’m not someone temporary or halfway here. I didn’t choose you by accident, and I’m not staying by coincidence. I chose you because I wanted to. and I will continue choosing you until my very last breath okay☹️☹️
@@ -443,84 +374,73 @@ i hope this helped you even a bit but if it didn’t baby then id recommend you 
 <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 <script>
-
 /* PASSWORD = 010126 */
-
 let wrongAttempts = 0;
-
 function checkPassword() {
-    var password = document.getElementById("passwordInput").value;
-
+    const password = document.getElementById("passwordInput").value;
     if (password === "010126") {
         document.getElementById("passwordScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
     } else {
         wrongAttempts++;
-
-        if (wrongAttempts === 1) {
-            alert("Wrong password 💌");
-        } else if (wrongAttempts === 2) {
-            alert("Hint: it’s a speciaaal date…");
-        } else {
-            alert("It’s the day everything started 🤍");
-        }
+        if (wrongAttempts === 1) alert("Wrong password 💌");
+        else if (wrongAttempts === 2) alert("Hint: it’s a speciaaal date…");
+        else alert("It’s the day everything started 🤍");
     }
 }
 
 function openLetter(id) {
-    if(id === "emergency") {
-        document.getElementById("dimBg").style.display = "block";
-    }
+    if(id === "emergency") document.getElementById("dimBg").style.display = "block";
     document.getElementById("mainContent").style.display = "none";
     document.getElementById(id).style.display = "block";
 }
 
 function goBack() {
     document.getElementById("dimBg").style.display = "none";
-    document.querySelectorAll(".letter-page").forEach(page => {
-        page.style.display = "none";
-    });
+    document.querySelectorAll(".letter-page").forEach(page => page.style.display = "none");
     document.getElementById("mainContent").style.display = "block";
 }
 
- let secretClicks = 0;
-
+let secretClicks = 0;
 function unlockSecret() {
     secretClicks++;
-
-    if (secretClicks < 3) {
-        alert("Nothing here yet...");
-    } else {
-        openLetter("secret");
-        secretClicks = 0; // resets
-    }
+    if (secretClicks < 3) alert("Nothing here yet...");
+    else { openLetter("secret"); secretClicks = 0; }
 }
-function launchConfetti() {
-    for (let i = 0; i < 60; i++) {
-        let confetti = document.createElement("div");
-        confetti.style.position = "fixed";
-        confetti.style.width = "8px";
-        confetti.style.height = "8px";
-        confetti.style.background = ["#ff6b9d", "#ffd6e0", "#e7b6ff"][Math.floor(Math.random()*3)];
-        confetti.style.top = "-10px";
-        confetti.style.left = Math.random() * window.innerWidth + "px";
-        confetti.style.borderRadius = "50%";
-        confetti.style.zIndex = "9999";
-        confetti.style.transition = "transform 3s linear";
-        document.body.appendChild(confetti);
+
+function burstFlowers(envelope) {
+    const container = envelope.querySelector(".flower-burst");
+
+    for (let i = 0; i < 8; i++) {
+        const flower = document.createElement("div");
+        flower.classList.add("flower");
+
+        const angle = Math.random() * 360;
+        const radius = 80 + Math.random() * 40;
+
+        const x = Math.cos(angle) * radius + "px";
+        const y = Math.sin(angle) * radius + "px";
+
+        flower.style.setProperty("--x", x);
+        flower.style.setProperty("--y", y);
+
+        container.appendChild(flower);
 
         setTimeout(() => {
-            confetti.style.transform = "translateY(100vh)";
-        }, 10);
-
-        setTimeout(() => {
-            confetti.remove();
-        }, 3000);
+            flower.remove();
+        }, 1000);
     }
 }
- 
+
+function triggerEnvelope(el, id) {
+    burstFlowers(el);
+
+    setTimeout(() => {
+        openLetter(id);
+    }, 600);
+}
 
 </script>
-
 </body>
 </html>
+
