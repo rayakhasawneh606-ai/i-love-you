@@ -7,6 +7,17 @@
  <title>Open Me When</title>
 
 <style>
+ .envelope::after {
+    content: "🌷💖🌷"; /* heart-shaped tulip petals vibe */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 2;
+    animation: floaty 3s ease-in-out infinite;
+}
 
 .dim-background {
     position: fixed;
