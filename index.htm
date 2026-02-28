@@ -190,14 +190,15 @@ box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
 .envelope::before { 
     /* existing flap styles remain */
 }
-
 .envelope .stamp {
     position: absolute;
-    top: 5px;
-    right: 10px;
-    width: 25px;
-    height: 25px;
-    background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center/contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* centers it */
+    width: 40px; /* adjust size */
+    height: 40px;
+    background: url('petal.png') no-repeat center/contain; /* replace with your heart tulip image */
+    pointer-events: none;
 }
 
 /* Flap opens on hover */
