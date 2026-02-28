@@ -10,10 +10,43 @@
    PAGE & LETTER STYLING
 =========================== */
 body {
-    background: linear-gradient(to bottom, #ffeef3, #ffd6e0 70%);
+    background: #ffd6e0; /* plain soft pink */
     margin: 0;
     font-family: 'Georgia', serif;
     text-align: center;
+    color: #3F231A; /* brown text */
+}
+
+#passwordScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* vertically center */
+    gap: 20px; /* space between elements */
+}
+
+#passwordScreen h2 {
+    margin-bottom: 10px;
+}
+
+#passwordScreen input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #d45b8c;
+    text-align: center;
+    width: 200px;
+}
+
+#passwordScreen button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d45b8c;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .dim-background {
