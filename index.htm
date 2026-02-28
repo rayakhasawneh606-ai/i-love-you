@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Me When</title>
+
+<style>
+
+/* ===========================
+   🌸 COLOR CUSTOMIZATION AREA
+   Change these to adjust vibe
+=========================== */
+
+:root {
+    --background-color: #ffeef3; /* MAIN PAGE BACKGROUND */
+    --letter-background: #fff6f9; /* LETTER PAGE BACKGROUND */
+    --envelope-color: #f8c8dc; /* ENVELOPE BODY */
+    --flap-color: #f4a9c7; /* ENVELOPE FLAP */
+    --text-color: #5a3e4d; 
+}
+
+/* =========================== */
+
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* PASSWORD SCREEN */
+
+#passwordScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-color);
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+    background: var(--envelope-color);
+}
+
+h1 {
+    margin-top: 60px;
+}
+
+/* ENVELOPES */
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 120px;
+    margin: 30px auto;
+    background: var(--envelope-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+/* Flap */
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--flap-color);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transition: transform 0.4s ease;
+    transform-origin: top;
+}
+
+/* Flap opens on hover */
+.envelope:hover::before {
+    transform: rotateX(180deg);
+}
+
+.envelope span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    font-size: 18px;
+}
+
+/* Decoration image area inside envelope */
+.envelope img {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    width: 30px;
+}
+
+/* LETTER PAGE */
+
+.letter-page {
+    display: none;
+    background: var(--letter-background);
+    min-height: 100vh;
+    padding: 60px 30px;
+}
+
+.back-btn {
+    margin-top: 40px;
+}
+
+/* CONSTRUCTION TAPE */
+
+.construction {
+    margin-top: 60px;
+    position: relative;
+    height: 150px;
+}
+
+.tape {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        yellow,
+        yellow 20px,
+        black 20px,
+        black 40px
+    );
+}
+
+.tape:first-child {
+    transform: rotate(20deg);
+    top: 40px;
+}
+
+.tape:last-child {
+    transform: rotate(-20deg);
+    top: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD SCREEN -->
+
+<div id="passwordScreen">
+    <h2>Enter Password</h2>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <button onclick="checkPassword()">Enter</button>
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div id="mainContent" style="display:none;">
+
+<h1>Open Me When</h1>
+
+<!-- ENVELOPE 1 -->
+<div class="envelope" onclick="openLetter('miss')">
+    <span>When you miss me</span>
+    <!-- 🌸 Add decoration image here -->
+    <!-- Replace src with your own image -->
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+</div>
+
+<!-- ENVELOPE 2 -->
+<div class="envelope" onclick="openLetter('bad')">
+    <span>When you have a bad day</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png">
+</div>
+
+<!-- ENVELOPE 3 -->
+<div class="envelope" onclick="openLetter('mad')">
+    <span>When you're mad</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/742/742752.png">
+</div>
+
+<!-- ENVELOPE 4 -->
+<div class="envelope" onclick="openLetter('unmotivated')">
+    <span>When you're unmotivated</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/742/742920.png">
+</div>
+
+<!-- ENVELOPE 5 -->
+<div class="envelope" onclick="openLetter('sleep')">
+    <span>When you can't sleep</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/742/742750.png">
+</div>
+
+<!-- 🚧 CONSTRUCTION AREA -->
+<div class="construction">
+    <div class="tape"></div>
+    <div class="tape"></div>
+</div>
+
+<p><strong>OOPS! this area is still under construction  
+come back for our next monthversary 😁😁</strong></p>
+
+</div>
+
+<!-- LETTER PAGES -->
+
+<div id="miss" class="letter-page">
+<h2>When You Miss Me</h2>
+<p>Write your cute message here.</p>
+<button class="back-btn" onclick="goBack()">Close</button>
+</div>
+
+<div id="bad" class="letter-page">
+<h2>When You Have a Bad Day</h2>
+<p>Write your comforting message here.</p>
+<button class="back-btn" onclick="goBack()">Close</button>
+</div>
+
+<div id="mad" class="letter-page">
+<h2>When You're Mad</h2>
+<p>Write your calm down message here.</p>
+<button class="back-btn" onclick="goBack()">Close</button>
+</div>
+
+<div id="unmotivated" class="letter-page">
+<h2>When You're Unmotivated</h2>
+<p>Write your motivation message here.</p>
+<button class="back-btn" onclick="goBack()">Close</button>
+</div>
+
+<div id="sleep" class="letter-page">
+<h2>When You Can't Sleep</h2>
+<p>Write your sleepy message here.</p>
+<button class="back-btn" onclick="goBack()">Close</button>
+</div>
+
+<script>
+
+/* PASSWORD = 010126 */
+
+function checkPassword() {
+    var password = document.getElementById("passwordInput").value;
+    if (password === "010126") {
+        document.getElementById("passwordScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        alert("Wrong password 💌");
+    }
+}
+
+function openLetter(id) {
+    document.getElementById("mainContent").style.display = "none";
+    document.getElementById(id).style.display = "block";
+}
+
+function goBack() {
+    document.querySelectorAll(".letter-page").forEach(page => {
+        page.style.display = "none";
+    });
+    document.getElementById("mainContent").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
