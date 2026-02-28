@@ -7,17 +7,7 @@
  <title>Open Me When</title>
 
 <style>
- .envelope::after {
-    content: "🌷💖🌷"; /* heart-shaped tulip petals vibe */
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 20px;
-    pointer-events: none;
-    z-index: 2;
-    animation: floaty 3s ease-in-out infinite;
-}
+ 
 
 .dim-background {
     position: fixed;
@@ -238,16 +228,16 @@ box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
 }
 
 .envelope::after {
-    content: "💟"; /* or use a wax seal emoji */
+    content: "🌷💖🌷"; /* heart-shaped tulip petals vibe */
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 20px;
     pointer-events: none;
     z-index: 2;
+    animation: floaty 3s ease-in-out infinite;
 }
-/* LETTER PAGE */
-
 .letter-page {
     display: none;
     background: var(--letter-background);
