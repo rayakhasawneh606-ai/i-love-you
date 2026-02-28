@@ -1,10 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Open Me When</title>
 
 <style>
@@ -55,12 +53,10 @@ body {
 /* ===========================
    ENVELOPES
 =========================== */
-
 .envelope {
     position: relative;
     width: 320px;
     height: 120px;
-    margin: 45px auto;
     background: #f8c8dc;
     border-radius: 10px;
     cursor: pointer;
@@ -112,8 +108,8 @@ body {
     position: absolute;
     top: 50%;         
     left: 50%;        
-    transform: translate(-50%, -50%); /* centers in envelope */
-    width: 50px;      /* adjust size if needed */
+    transform: translate(-50%, -50%);
+    width: 50px;
     height: 50px;
     background: url('https://i.ibb.co/YX0tVqY/heart-tulip.png') no-repeat center/contain; 
     pointer-events: none;
@@ -170,113 +166,115 @@ body {
 <div id="mainContent" style="display:none;">
     <h1>Open Me When</h1>
 
-    <!-- ENVELOPES -->
-  <!-- ENVELOPES GRID -->
-<div class="envelope-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; justify-items: center; margin-top: 40px;">
-    <div class="envelope" onclick="openLetter('miss')">
-        <span>When you miss me</span>
-        <div class="stamp"></div>
+    <!-- ENVELOPES GRID -->
+    <div class="envelope-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; justify-items: center; margin-top: 40px;">
+        <div class="envelope" onclick="openLetter('miss')">
+            <span>When you miss me</span>
+            <div class="stamp"></div>
+        </div>
+
+        <div class="envelope" onclick="openLetter('bad')">
+            <span>When you have a bad day</span>
+            <div class="stamp"></div>
+        </div>
+
+        <div class="envelope" onclick="openLetter('mad')">
+            <span>When you're mad</span>
+            <div class="stamp"></div>
+        </div>
+
+        <div class="envelope" onclick="openLetter('sad')">
+            <span>When you're sad</span>
+            <div class="stamp"></div>
+        </div>
+
+        <div class="envelope" onclick="openLetter('sleep')">
+            <span>When you can't sleep</span>
+            <div class="stamp"></div>
+        </div>
+
+        <div class="envelope emergency" onclick="openLetter('emergency')">
+            <span>Open in case of emotional emergency</span>
+            <div class="stamp"></div>
+        </div>
+
+        <div class="envelope secret" onclick="unlockSecret()">
+            <span>???</span>
+            <div class="stamp"></div>
+        </div>
     </div>
 
-    <div class="envelope" onclick="openLetter('bad')">
-        <span>When you have a bad day</span>
-        <div class="stamp"></div>
-    </div>
-
-    <div class="envelope" onclick="openLetter('mad')">
-        <span>When you're mad</span>
-        <div class="stamp"></div>
-    </div>
-
-    <div class="envelope" onclick="openLetter('sad')">
-        <span>When you're sad</span>
-        <div class="stamp"></div>
-    </div>
-
-    <div class="envelope" onclick="openLetter('sleep')">
-        <span>When you can't sleep</span>
-        <div class="stamp"></div>
-    </div>
-
-    <div class="envelope emergency" onclick="openLetter('emergency')">
-        <span>Open in case of emotional emergency</span>
-        <div class="stamp"></div>
-    </div>
-
-    <div class="envelope secret" onclick="unlockSecret()">
-        <span>???</span>
-        <div class="stamp"></div>
+    <!-- CONSTRUCTION BOX -->
+    <div class="construction">
+        <div class="cute-box">
+            <h3>💌 Coming Soon 💌</h3>
+            <p>OOPS! more letters unlocking next month...</p>
+            <div class="sparkles">🌷🌷🌷</div>
+        </div>
     </div>
 </div>
 
-<!-- CONSTRUCTION BOX -->
-<div class="construction">
-    <div class="cute-box">
-        <h3>💌 Coming Soon 💌</h3>
-        <p>OOPS! more letters unlocking next month...</p>
-        <div class="sparkles">🌷🌷🌷</div>
-    </div>
-</div>
-
+<!-- LETTER PAGES -->
 <div id="miss" class="letter-page">
- <h2>When You Miss Me</h2>
-<p>  If you’re missing me nownownow then that honestly makes my heart ache in the bestest way ever because It means what we have is real enough to be felt when we’re apart. It means I matter to you and that’s means the whole world to me. woaaah i matter to my boyfriend YAYAYAYYAYA AWHHH MY BABYY 
-<br>
+    <h2>When You Miss Me</h2>
+   <p>  If you’re missing me nownownow then that honestly makes my heart ache in the bestest way ever because It means what we have is real enough to be felt when we’re apart. It means I matter to you and that’s means the whole world to me. woaaah i matter to my boyfriend YAYAYAYYAYA AWHHH MY BABYY 
+
 But don’t let missing me turn scary i promise ill be back oky. 😡😡 but baby a teenie weenie reminder that I’m not someone temporary or halfway here. I didn’t choose you by accident, and I’m not staying by coincidence. I chose you because I wanted to. and I will continue choosing you until my very last breath okay☹️☹️
-<br>
+
 baby the best thing is that our distance doesn’t ruin our relationship and if anything it makes us stronger and  thats what i love most about it. its probably the only thing i like about our distance BOOOO☹️☹️☹️☹️but baby even if we’re not talking in that exact second, I still carry you with me in small ways throughout my day. So if the space feels loud, just remember I’m still here. im always always here woaaah i could be under your bed or in your closet WOAAAHH watch out baby im not going anywhere. 
 </p>
-
-<button class="back-btn" onclick="goBack()">Close</button>
+    <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 
 <div id="bad" class="letter-page">
+    <h2>When You Have a Bad Day</h2>
+    <p>  awh hi my poor babyy well im not sad now but when you open this youll either be having a bad day or you just opened this for fun but either way mylove bad days don’t cancel out who you are and they don’t erase any of your progress, effort, or your growth. sometimes the world is just exhausting and unfair and a big fat meanie thats meaner than it needs to be. and it’s okay if today felt like that
 
-<h2>When You Have a Bad Day</h2>
-<p> awh hi my poor babyy well im not sad now but when you open this youll either be having a bad day or you just opened this for fun but either way mylove bad days don’t cancel out who you are and they don’t erase any of your progress, effort, or your growth. sometimes the world is just exhausting and unfair and a big fat meanie thats meaner than it needs to be. and it’s okay if today felt like that
-<br>
 youre allowed to have bad days. and you’re allowed to feel disappointed or frustrated. but never ever let one hard day rewrite anything okay. you’re still super duper capable of everything and more. still growing and becoming everything you’re meant to be even if it doesn’t feel obvious right now.
-<br>
+
 and baby tomorrow is always a clean page to restart because you deserve a fresh start.  no matter how today went, I’m still proud of you for trying. youre my baby and i promise to stay by your side no matter whattt MWAAAAHH IM KISS ATTACKING YOU </p>
-<button class="back-btn" onclick="goBack()">Close</button>
+    <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 
 <div id="mad" class="letter-page">
-<h2>When You're Mad</h2>
+    <h2>When You're Mad</h2>
 <p> hii myheartt i know when you’re angry everything feels more intense than it probably is. your thoughts move faster and more impulsive and it’s like everything becomes bigger than it needs to be. I’m not here to act like your feelings aren’t valid but baby i want you to know that i think that
 you’re such a good person, and I hate the idea of something small ruining your whole mood. but baby woaaah deep breaths okay you don’t have to respond immediately and you don’t have to fix everything now okay YAYAYYAYA calm okay baby 
 
 I love the way youre always so calm about everything regardless of how bad or big the thing is. even if you get a bit frustrated i know it still comes from your heart. and to me thats the cutest thing ever also baby youre softer than you pretend to be, and that softness is something I’ll always cherish and protect . and no matter what happens I’m still by your side.
 <br>
 now, i want you to act towards this situation with the same calmness you treat me with because nothings ever ever worth your anger or irritation. i love you so much my precious boyyy </p>
-<button class="back-btn" onclick="goBack()">Close</button>
+    <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 
 <div id="sad" class="letter-page">
-<h2>When You're Sad</h2>
-<p> HI MY BABYYY If you’re reading this then I’m guessing today you feel booohoohoo or maybe again youre just opening this for fun but anyways mylove sometimes youre sad  for no clear reason but it just feels like too much. I wish I could sit next to you and hug you and kiss attack you with the biggest fattest kisses right now just to help you feel better but i cant
+    <h2>When You're Sad</h2>
+    <p> HI MY BABYYY If you’re reading this then I’m guessing today you feel booohoohoo or maybe again youre just opening this for fun but anyways mylove sometimes youre sad  for no clear reason but it just feels like too much. I wish I could sit next to you and hug you and kiss attack you with the biggest fattest kisses right now just to help you feel better but i cant
 
 but baby you don’t need to explain yourself to anyone if you dont feel like it and you don’t need to act strong ay all. I KNOW O SAY RHIS ALOT but I care about you on your quiet days too but like especially on those days. youre not a burden for feeling things EVER EVER OKAY DONT EVEN THINK THAT OMG but baby youre human duh and everyone feels things like this and as your girlfriend its my collective responsibility to make sure youre doing amazing ( that was a fancy sentence) but baby just because youre with me that doesnr make everything amazing and i totally understand that so baby anytime you remember some things or feel a certain way towards anything im always here to listen and help you, i made these letters as a reminder that you can always come back to me regardless of the situation and that youll never ever ever EVERRR be a burden to me no matter what youre feeling or how stressful it is. one more thing, I love everything about you even when it makes you seem vulnerable.
 
-Whatever you’re feeling right now won’t last forever. feelings move even when they feel stuck. (not your feelings for me okay.) and even if it takes time, I’m not going anywhere. you don’t scare me away when you’re sad. you matter to me in every version of yourself the nonchalant one the tired one the quiet one the funny one and basically just all of you. </p>
-<button class="back-btn" onclick="goBack()">Close</button>
+Whatever you’re feeling right now won’t last forever. feelings move even when they feel stuck. (not your feelings for me okay.) and even if it takes time, I’m not going anywhere. you don’t scare me away when you’re sad. you matter to me in every version of yourself the nonchalant one the tired one the quiet one the funny one and basically just all of you.
+
+</p>
+    <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 
 <div id="sleep" class="letter-page">
-<h2>When You Can't Sleep</h2>
-<p> hi my sleepy babyyy i know deep down youre sleepy. I JUST DO MY GIRLFRIEND INSTINCT IS KICKING IN. your mind probably won’t stop racing but come sit here with me for a second or imagine it atleast.I know how it feels when your brain just won’t switch off replaying conversations in a good or bad way hmm orr maybeee eve imagining worst case scenarios( god forbid.) orr thinking about tomorrow before it even arrives.
+    <h2>When You Can't Sleep</h2>
+    <p> hi my sleepy babyyy i know deep down youre sleepy. I JUST DO MY GIRLFRIEND INSTINCT IS KICKING IN. your mind probably won’t stop racing but come sit here with me for a second or imagine it atleast.I know how it feels when your brain just won’t switch off replaying conversations in a good or bad way hmm orr maybeee eve imagining worst case scenarios( god forbid.) orr thinking about tomorrow before it even arrives.
 
 but you don’t need to solve tomorrow tonight. you don’t need to carry the whole future at idk what time. let your shoulders drop. unclench your jaw. Slow your breathing. Inhale slowly. exhale longer relax your face especially your eyebrows aand boom do it again.
 
 baby you probably need this sleep okay so hmm Imagine I’m next to you, wnd we’re cuddling baby and hmmmmm just talking quietly about nothing important i want yoi to know that you deserve peace and everything good in the world. WE DONT WANT YOUR CAKE TO HAVE CHEMICALS AGWIN BABY. so as for now your only responsibility is to sleep. I hope you drift off knowing you’re cared for and loved so very deeply </p>
-<button class="back-btn" onclick="goBack()">Close</button>
+    <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 
 <div id="emergency" class="letter-page">
-<h2>In Case of Emotional Emergency 🚨</h2>
-<p>
+    <h2>In Case of Emotional Emergency 🚨</h2>
+    <p>
+
 If you're here then hmm something went wrong so we pause.
-<br> 
+
 THEN we breathe okay.
 
 youre not alone.
@@ -286,29 +284,28 @@ and I am by your side always and forever.
 
 Whatever you're feeling right now?
 we’ll get through it together okay just pinky promise to tell me whatevers wrong whenever you feel it okay i promise you i wont judge or get mad or anything i love you so much my baby
+
 </p>
-<button class="back-btn" onclick="goBack()">Close</button>
+    <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 
 <div id="secret" class="letter-page">
-<h2>The One I never ever say enough</h2>
-<p>
-This is the part where I tell you the things I don’t always say out loud but even if i do, to me they’re never too much to say
-<br>
+    <h2>The One I never ever say enough</h2>
+    <p> This is the part where I tell you the things I don’t always say out loud but even if i do, to me they’re never too much to say
 
 okay baby i made this to remind you that i love you alot but if you actually ever end up forgetting how much i love you then woahhh ive failed as a girlfriend. BUT THATS NOT YOUR FAULT OKAY If you ever start doubting how much you mean to me read this very slowly wnd memorize it like that german poem you memorized in february. I don’t love you in a temporary way. I love you so much even in the moments where you question everything. in the way I think about you randomly during my day, in the way small things remind me of you, in the way I notice details about you that no one else does.
 
 I love the way you think. the way you care. the way you try, even when you’re unsure. youre not just someone I like being around. youre someone i wanna spend the rest of my life with, someone I genuinely value. someone I respect. someone I chose wholeheartedly.
 
 and all of that doesn’t fade because of one bad mood, one bad thought, or one rough season. my feelings for you aren’t fragile theyre steady. and i feel like ive said all of this in my valentines paragraph but its the full truth coming right from the center and very bottom of my heart. so baby. if your mind ever tells you otherwise, don’t believe it. okay maybe sometimes i act stupid or especially stubborn but that doesnt make loving you any less. its probably more NONO definitely more because i dont think there has ever been a passing day where ive loved you the same or less.
-<br> 
-you always do these little things that make my day in some way or another and its the things like those that make me fall harder and harder for you. and just know baby youre the only thing on this earth that calms me and keeps me sane. idk how you do it bur you do it in a way so well that IDK ILL EXPLODE NOW. you get me so well you ARE the perfect person for me and i believe that if we were ever words in some other universe we would be those words that complete each other like soul and mate because there has never been a split second where my heart hasn’t felt complete with you around. AWWHHH but yes baby youre the love of my life and id choose you even if our memories of eachother now were erased ( GOD FORBID.) because even if my mind weren’t to recognize you my soul always will and thats the most important part ever.
-<br>
-i hope this helped you even a bit but if it didn’t baby then id recommend you reading my valentines paragraph again because thats the closest ive ever felt to projecting my feelings for you okay my precious babyy☹️☹️
 
+you always do these little things that make my day in some way or another and its the things like those that make me fall harder and harder for you. and just know baby youre the only thing on this earth that calms me and keeps me sane. idk how you do it bur you do it in a way so well that IDK ILL EXPLODE NOW. you get me so well you ARE the perfect person for me and i believe that if we were ever words in some other universe we would be those words that complete each other like soul and mate because there has never been a split second where my heart hasn’t felt complete with you around. AWWHHH but yes baby youre the love of my life and id choose you even if our memories of eachother now were erased ( GOD FORBID.) because even if my mind weren’t to recognize you my soul always will and thats the most important part ever.
+
+i hope this helped you even a bit but if it didn’t baby then id recommend you reading my valentines paragraph again because thats the closest ive ever felt to projecting my feelings for you okay my precious babyy☹️☹️
 </p>
-<button class="back-btn" onclick="goBack()">Close</button>
+    <button class="back-btn" onclick="goBack()">Close</button>
 </div>
+
 <script>
 /* PASSWORD = 010126 */
 let wrongAttempts = 0;
