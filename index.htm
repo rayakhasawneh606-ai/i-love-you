@@ -223,7 +223,16 @@ box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
     right: 10px;
     width: 30px;
 }
-
+.envelope .stamp {
+    position: absolute;
+    top: 50%;         /* vertical center */
+    left: 50%;        /* horizontal center */
+    transform: translate(-50%, -50%); /* center exactly */
+    width: 40px;      /* adjust size as you like */
+    height: 40px;
+    background: url('https://i.ibb.co/YX0tVqY/heart-tulip.png') no-repeat center/contain; /* your heart tulip image */
+    pointer-events: none;  /* so clicks go through */
+}
 .envelope::after {
     content: "💛"; /* heart-shaped tulip petals vibe */
     position: absolute;
