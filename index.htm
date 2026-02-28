@@ -259,7 +259,6 @@ background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Pink_
     <div class="flower-burst"></div>
 </div>
 
-</div>
     <!-- CONSTRUCTION BOX -->
  <div class="envelope">
     <span>Coming Soon</span>
@@ -377,7 +376,8 @@ function checkPassword() {
     if (password === "010126") {
         document.getElementById("passwordScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
-    } else {
+      } else {
+}  // ← ADD THIS LINE
         wrongAttempts++;
         if (wrongAttempts === 1) alert("Wrong password 💌");
         else if (wrongAttempts === 2) alert("Hint: it’s a speciaaal date…");
