@@ -3,9 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open Me When</title>
+<div id="mainContent" style="display:none;">
+
+<div class="page-container">
+
+ <title>Open Me When</title>
 
 <style>
+  .emergency {
+    background: #ffd6e0;
+    border: 2px solid #ff6b9d;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0px rgba(255,107,157,0.4); }
+    50% { box-shadow: 0 0 20px rgba(255,107,157,0.7); }
+    100% { box-shadow: 0 0 0px rgba(255,107,157,0.4); }
+}  
+    
+    .secret {
+    background: #e7b6ff;
+    box-shadow: 0 8px 25px rgba(180, 120, 255, 0.4);
+}
+    .page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
 .construction {
     margin-top: 80px;
     display: flex;
@@ -102,7 +127,7 @@ h1 {
     position: relative;
     width: 320px;
     height: 120px;
-    margin: 30px auto;
+    margin: 45px auto;
     background: var(--envelope-color);
     border-radius: 10px;
     cursor: pointer;
@@ -139,7 +164,8 @@ box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
     top: 18px; /* moves text into triangle */
     left: 50%;
     transform: translateX(-50%);
-    font-size: 16px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
     font-weight: bold;
     z-index: 2;
     color: white;
@@ -219,7 +245,15 @@ box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
     <span>When you can't sleep</span>
     <img src="https://cdn-icons-png.flaticon.com/512/742/742750.png">
 </div>
-
+    
+<div class="envelope emergency" onclick="openLetter('emergency')">
+    <span>Open in case of emotional emergency</span>
+</div>
+    
+    <div class="envelope secret" onclick="unlockSecret()">
+    <span>???</span>
+</div>
+    
 <!-- 🚧 CONSTRUCTION AREA -->
 <div class="construction">
     <div class="cute-box">
@@ -265,6 +299,35 @@ box-shadow: 0 8px 20px rgba(244, 169, 199, 0.4);
 <button class="back-btn" onclick="goBack()">Close</button>
 </div>
 
+<div id="emergency" class="letter-page">
+<h2>In Case of Emotional Emergency 🚨</h2>
+<p>
+If you're here, something feels heavy.
+
+Pause.
+
+Breathe in slowly.
+Hold it.
+Now breathe out.
+
+You are not alone.
+You are loved.
+You are wanted.
+And I am on your side — always.
+
+Whatever you're feeling right now?
+We will get through it together.
+</p>
+<button class="back-btn" onclick="goBack()">Close</button>
+</div>
+
+<div id="secret" class="letter-page">
+<h2>The One I Never Say Enough</h2>
+<p>
+This is the part where I tell you the things I don’t always say out loud…
+</p>
+<button class="back-btn" onclick="goBack()">Close</button>
+</div>
 <script>
 
 /* PASSWORD = 010126 */
@@ -289,6 +352,18 @@ function goBack() {
         page.style.display = "none";
     });
     document.getElementById("mainContent").style.display = "block";
+}
+    let secretClicks = 0;
+
+function unlockSecret() {
+    secretClicks++;
+
+    if (secretClicks < 3) {
+        alert("Nothing here yet...");
+    } else {
+        openLetter("secret");
+        secretClicks = 0; // resets
+    }
 }
 
 </script>
