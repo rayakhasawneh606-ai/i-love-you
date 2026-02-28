@@ -214,8 +214,10 @@ body {
 <div class="envelope-grid">
 
     <!-- ENVELOPES -->
+
     <div class="envelope" onclick="triggerEnvelope(this, 'miss')">
-        <span>When you miss me</span>
+      <div id="miss" class="letter-page">
+  <span>When you miss me</span>
         <div class="stamp"></div>
 
 <div class="flower-burst"></div>
@@ -230,7 +232,7 @@ body {
 
     </div>
 
-    <div class="envelope" onclick="triggerEnvelope(this, ‘mad')">
+    <div class="envelope" onclick="triggerEnvelope(this, 'mad')"
         <span>When you're mad</span>
         <div class="stamp"></div>
 
@@ -247,7 +249,7 @@ body {
 
     </div>
 
-    <div class="envelope" onclick="triggerEnvelope(this, ‘sleep')">
+    <div class="envelope" onclick="triggerEnvelope(this, 'sleep')"
         <span>When you can't sleep</span>
         <div class="stamp"></div>
 
@@ -415,7 +417,7 @@ function burstFlowers(envelope) {
         const flower = document.createElement("div");
         flower.classList.add("flower");
 
-        const angle = Math.random() * 360;
+   const angle = Math.random() * 2 * Math.PI;
         const radius = 80 + Math.random() * 40;
 
         const x = Math.cos(angle) * radius + "px";
