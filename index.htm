@@ -68,7 +68,7 @@ body {
     position: absolute;
     width: 35px;
     height: 35px;
-    background: url('https://i.ibb.co/YX0tVqY/heart-tulip.png') no-repeat center/contain;
+background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Pink_rose_icon.svg/512px-Pink_rose_icon.svg.png') no-repeat center/contain;
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
     animation: flowerPop 1s ease forwards;
@@ -155,7 +155,7 @@ body {
     transform: translate(-50%, -50%); /* centers in envelope */
     width: 50px;      /* adjust size if needed */
     height: 50px;
-    background: url('https://i.ibb.co/YX0tVqY/heart-tulip.png') no-repeat center/contain; 
+background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Pink_rose_icon.svg/512px-Pink_rose_icon.svg.png') no-repeat center/contain;
     pointer-events: none;
 }
 
@@ -261,15 +261,21 @@ body {
 
 </div>
     <!-- CONSTRUCTION BOX -->
-    <div class="construction">
-        <div class="cute-box">
-            <h3>💌 Coming Soon 💌</h3>
-            <p> OOPS! more letters unlocking next month...</p>
-            <div class="sparkles">🌷🌷🌷</div>
-        </div>
+ <div class="envelope">
+    <span>Coming Soon</span>
+    <div style="
+        position:absolute;
+        bottom:20px;
+        left:50%;
+        transform:translateX(-50%);
+        font-size:14px;
+        color:#d45b8c;
+        width:140px;
+    ">
+        💌OOPS!!More letters next month 💌
     </div>
 </div>
-
+           
 
 <div id="miss" class="letter-page">
 
@@ -377,12 +383,21 @@ function checkPassword() {
         else if (wrongAttempts === 2) alert("Hint: it’s a speciaaal date…");
         else alert("It’s the day everything started 🤍");
     }
-}
-
 function openLetter(id) {
-    if(id === "emergency") document.getElementById("dimBg").style.display = "block";
+    const letter = document.getElementById(id);
+
+    if (!letter) return;
+
+    document.querySelectorAll(".letter-page").forEach(page => {
+        page.style.display = "none";
+    });
+
     document.getElementById("mainContent").style.display = "none";
-    document.getElementById(id).style.display = "block";
+    letter.style.display = "block";
+
+    if(id === "emergency") {
+        document.getElementById("dimBg").style.display = "block";
+    }
 }
 
 function goBack() {
