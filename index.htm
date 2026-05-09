@@ -1,512 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>open me when — for my baby</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>open me when — for my baby</title>
 
-<style>
-/* ===========================
-   FONTS & BASE STYLES
-=========================== */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
+    <style>
+        /* ===========================
+           FONTS & BASE STYLES
+        =========================== */
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    background: linear-gradient(145deg, #fff0f3 0%, #ffd9e8 100%);
-    font-family: 'Quicksand', sans-serif;
-    color: #4a2b2b;
-    min-height: 100vh;
-    line-height: 1.7;
-}
+        body {
+            background: linear-gradient(145deg, #fff0f3 0%, #ffd9e8 100%);
+            font-family: 'Quicksand', sans-serif;
+            color: #4a2b2b;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
 
-/* ===========================
-   PASSWORD SCREEN
-=========================== */
-#passwordScreen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: rgba(255, 240, 245, 0.9);
-    backdrop-filter: blur(5px);
-    padding: 20px;
-}
+        /* ===========================
+           PASSWORD SCREEN
+        =========================== */
+        #passwordScreen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgba(255, 240, 245, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
 
-.password-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(244, 143, 177, 0.2);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-}
+        .password-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(244, 143, 177, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
 
-.password-card h2 {
-    font-size: 28px;
-    font-weight: 500;
-    color: #d45b8c;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
+        .password-card h2 {
+            font-size: 28px;
+            font-weight: 500;
+            color: #d45b8c;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
 
-.password-card .heart-icon {
-    font-size: 40px;
-    margin-bottom: 20px;
-    animation: pulse 2s infinite;
-}
+        .password-card .heart-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
 
-.password-card input {
-    width: 100%;
-    padding: 15px 20px;
-    font-size: 16px;
-    border: 2px solid #f8c8dc;
-    border-radius: 50px;
-    margin-bottom: 15px;
-    font-family: 'Quicksand', sans-serif;
-    text-align: center;
-    letter-spacing: 2px;
-    background: white;
-    transition: all 0.3s;
-}
+        .password-card input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #f8c8dc;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            letter-spacing: 2px;
+            background: white;
+            transition: all 0.3s;
+        }
 
-.password-card input:focus {
-    outline: none;
-    border-color: #d45b8c;
-    box-shadow: 0 0 0 4px rgba(212, 91, 140, 0.1);
-}
+        .password-card input:focus {
+            outline: none;
+            border-color: #d45b8c;
+            box-shadow: 0 0 0 4px rgba(212, 91, 140, 0.1);
+        }
 
-.password-card button {
-    background: #d45b8c;
-    color: white;
-    border: none;
-    padding: 15px 35px;
-    font-size: 18px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: all 0.3s;
-    box-shadow: 0 8px 15px rgba(212, 91, 140, 0.3);
-}
+        .password-card button {
+            background: #d45b8c;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 15px rgba(212, 91, 140, 0.3);
+        }
 
-.password-card button:hover {
-    background: #c14a7a;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 20px rgba(212, 91, 140, 0.4);
-}
+        .password-card button:hover {
+            background: #c14a7a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(212, 91, 140, 0.4);
+        }
 
-/* ===========================
-   MAIN CONTENT
-=========================== */
-#mainContent {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    display: none;
-}
+        /* ===========================
+           MAIN CONTENT
+        =========================== */
+        #mainContent {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: none;
+        }
 
-.main-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
+        .main-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-.main-header h1 {
-    font-size: 48px;
-    font-weight: 400;
-    color: #d45b8c;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
-}
+        .main-header h1 {
+            font-size: 48px;
+            font-weight: 400;
+            color: #d45b8c;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+        }
 
-.main-header p {
-    font-size: 18px;
-    color: #b3577a;
-    font-style: italic;
-}
+        .main-header p {
+            font-size: 18px;
+            color: #b3577a;
+            font-style: italic;
+        }
 
-/* ===========================
-   ENVELOPE GRID
-=========================== */
-.envelope-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin: 40px 0;
-}
+        /* ===========================
+           ENVELOPE GRID
+        =========================== */
+        .envelope-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
 
-.envelope {
-    position: relative;
-    background: white;
-    border-radius: 20px;
-    padding: 30px 20px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(244, 143, 177, 0.15);
-    border: 2px solid rgba(255, 255, 255, 0.8);
-    text-align: center;
-    min-height: 160px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+        .envelope {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(244, 143, 177, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-.envelope::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background: linear-gradient(135deg, #f8c8dc, #ffb6d5);
-    border-radius: 18px 18px 0 0;
-}
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(135deg, #f8c8dc, #ffb6d5);
+            border-radius: 18px 18px 0 0;
+        }
 
-.envelope:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 30px rgba(212, 91, 140, 0.25);
-    border-color: #f8c8dc;
-}
+        .envelope:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(212, 91, 140, 0.25);
+            border-color: #f8c8dc;
+        }
 
-.envelope span {
-    font-size: 18px;
-    font-weight: 600;
-    color: #4a2b2b;
-    margin: 15px 0 10px;
-    position: relative;
-    z-index: 2;
-    max-width: 200px;
-}
+        .envelope span {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4a2b2b;
+            margin: 15px 0 10px;
+            position: relative;
+            z-index: 2;
+            max-width: 200px;
+        }
 
-.envelope .stamp {
-    font-size: 32px;
-    margin-top: 5px;
-    opacity: 0.8;
-    transition: transform 0.3s;
-}
+        .envelope .stamp {
+            font-size: 32px;
+            margin-top: 5px;
+            opacity: 0.8;
+            transition: transform 0.3s;
+        }
 
-.envelope:hover .stamp {
-    transform: rotate(5deg) scale(1.1);
-}
+        .envelope:hover .stamp {
+            transform: rotate(5deg) scale(1.1);
+        }
 
-.envelope.emergency {
-    background: #ffe5f0;
-    border: 2px dashed #d45b8c;
-}
+        .envelope.emergency {
+            background: #ffe5f0;
+            border: 2px dashed #d45b8c;
+        }
 
-.envelope.emergency::before {
-    background: linear-gradient(135deg, #d45b8c, #f4a9c7);
-}
+        .envelope.emergency::before {
+            background: linear-gradient(135deg, #d45b8c, #f4a9c7);
+        }
 
-/* ===========================
-   CONSTRUCTION BOX
-=========================== */
-.construction {
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-}
+        /* ===========================
+           CONSTRUCTION BOX
+        =========================== */
+        .construction {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
 
-.cute-box {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(5px);
-    padding: 30px 50px;
-    border-radius: 60px;
-    box-shadow: 0 15px 30px rgba(244, 143, 177, 0.15);
-    border: 3px dashed #f4a9c7;
-    animation: floaty 4s ease-in-out infinite;
-    text-align: center;
-}
+        .cute-box {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 30px 50px;
+            border-radius: 60px;
+            box-shadow: 0 15px 30px rgba(244, 143, 177, 0.15);
+            border: 3px dashed #f4a9c7;
+            animation: floaty 4s ease-in-out infinite;
+            text-align: center;
+        }
 
-.cute-box h3 {
-    font-size: 24px;
-    color: #d45b8c;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
+        .cute-box h3 {
+            font-size: 24px;
+            color: #d45b8c;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
 
-.cute-box p {
-    font-size: 16px;
-    color: #b3577a;
-    margin: 5px 0;
-}
+        .cute-box p {
+            font-size: 16px;
+            color: #b3577a;
+            margin: 5px 0;
+        }
 
-.cute-box .sparkles {
-    font-size: 24px;
-    margin-top: 10px;
-    letter-spacing: 5px;
-}
+        .cute-box .sparkles {
+            font-size: 24px;
+            margin-top: 10px;
+            letter-spacing: 5px;
+        }
 
-@keyframes floaty {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
+        @keyframes floaty {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
 
-/* ===========================
-   LETTER PAGES
-=========================== */
-.letter-page {
-    display: none;
-    min-height: 100vh;
-    padding: 60px 30px;
-    background: rgba(255, 246, 249, 0.95);
-    backdrop-filter: blur(5px);
-    position: relative;
-}
+        /* ===========================
+           LETTER PAGES
+        =========================== */
+        .letter-page {
+            display: none;
+            min-height: 100vh;
+            padding: 60px 30px;
+            background: rgba(255, 246, 249, 0.95);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
 
-.letter-container {
-    max-width: 700px;
-    margin: 0 auto;
-    background: white;
-    padding: 50px 40px;
-    border-radius: 40px;
-    box-shadow: 0 30px 50px rgba(212, 91, 140, 0.15);
-    border: 3px solid #ffe4f0;
-    position: relative;
-}
+        .letter-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 40px;
+            box-shadow: 0 30px 50px rgba(212, 91, 140, 0.15);
+            border: 3px solid #ffe4f0;
+            position: relative;
+        }
 
-.letter-container::before {
-    content: "💌";
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 40px;
-    background: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+        .letter-container::before {
+            content: "💌";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
-.letter-page h2 {
-    font-size: 32px;
-    color: #d45b8c;
-    margin-bottom: 30px;
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: 1px;
-}
+        .letter-page h2 {
+            font-size: 32px;
+            color: #d45b8c;
+            margin-bottom: 30px;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 1px;
+        }
 
-.letter-page p {
-    font-size: 17px;
-    line-height: 1.9;
-    color: #4a2b2b;
-    margin-bottom: 40px;
-    white-space: pre-line;
-    font-weight: 400;
-}
+        .letter-page p {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #4a2b2b;
+            margin-bottom: 40px;
+            white-space: pre-line;
+            font-weight: 400;
+        }
 
-.back-btn {
-    background: #f8c8dc;
-    color: #4a2b2b;
-    border: none;
-    padding: 15px 40px;
-    font-size: 16px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: inline-block;
-    margin: 0 auto;
-    border: 2px solid white;
-    box-shadow: 0 5px 15px rgba(212, 91, 140, 0.2);
-}
+        .back-btn {
+            background: #f8c8dc;
+            color: #4a2b2b;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            margin: 0 auto;
+            border: 2px solid white;
+            box-shadow: 0 5px 15px rgba(212, 91, 140, 0.2);
+        }
 
-.back-btn:hover {
-    background: #d45b8c;
-    color: white;
-    transform: scale(1.05);
-}
+        .back-btn:hover {
+            background: #d45b8c;
+            color: white;
+            transform: scale(1.05);
+        }
 
-/* ===========================
-   DECORATIVE ELEMENTS
-=========================== */
-.floating-hearts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.4;
-}
+        /* ===========================
+           DECORATIVE ELEMENTS
+        =========================== */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.4;
+        }
 
-.floating-hearts::before,
-.floating-hearts::after {
-    content: "❤️";
-    position: absolute;
-    font-size: 20px;
-    animation: float 15s linear infinite;
-}
+        .floating-hearts::before,
+        .floating-hearts::after {
+            content: "❤️";
+            position: absolute;
+            font-size: 20px;
+            animation: float 15s linear infinite;
+        }
 
-.floating-hearts::before {
-    left: 10%;
-    animation-delay: 0s;
-}
+        .floating-hearts::before {
+            left: 10%;
+            animation-delay: 0s;
+        }
 
-.floating-hearts::after {
-    right: 15%;
-    animation-delay: -5s;
-}
+        .floating-hearts::after {
+            right: 15%;
+            animation-delay: -5s;
+        }
 
-@keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.5; }
-    90% { opacity: 0.5; }
-    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
-}
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
 
-/* ===========================
-   MOBILE RESPONSIVE
-=========================== */
-@media (max-width: 600px) {
-    .main-header h1 {
-        font-size: 36px;
-    }
-    
-    .letter-container {
-        padding: 40px 20px;
-    }
-    
-    .letter-page h2 {
-        font-size: 26px;
-    }
-    
-    .letter-page p {
-        font-size: 16px;
-        line-height: 1.7;
-    }
-    
-    .cute-box {
-        padding: 20px 30px;
-    }
-    
-    .envelope-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .password-card {
-        padding: 30px 20px;
-    }
-}
-</style>
+        /* ===========================
+           MUSIC TOGGLE BUTTON
+        =========================== */
+        #musicToggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: #d45b8c;
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(212, 91, 140, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        #musicToggle:hover {
+            background: #c14a7a;
+        }
+
+        #musicToggle.playing {
+            animation: pulse 1.5s infinite;
+            background: #c14a7a;
+        }
+
+        /* ===========================
+           MOBILE RESPONSIVE
+        =========================== */
+        @media (max-width: 600px) {
+            .main-header h1 {
+                font-size: 36px;
+            }
+            
+            .letter-container {
+                padding: 40px 20px;
+            }
+            
+            .letter-page h2 {
+                font-size: 26px;
+            }
+            
+            .letter-page p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+            
+            .cute-box {
+                padding: 20px 30px;
+            }
+            
+            .envelope-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .password-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Floating hearts background -->
-<div class="floating-hearts"></div>
+    <!-- Floating hearts background -->
+    <div class="floating-hearts"></div>
 
-<!-- PASSWORD SCREEN -->
-<div id="passwordScreen">
-    <div class="password-card">
-        <div class="heart-icon">💗</div>
-        <h2>"open me when" letters</h2>
-        <p style="color: #b3577a; margin-bottom: 25px;">but before you see, enter our special date</p>
-        <input type="password" id="passwordInput" placeholder="dd/mm/yy" maxlength="6">
-        <button onclick="checkPassword()">unlock</button>
-    </div>
-</div>
-
-<!-- MAIN CONTENT -->
-<div id="mainContent">
-    <div class="main-header">
-        <h1>open me when...</h1>
-        <p>for my baby, with all my love 💕</p>
-    </div>
-
-    <!-- ENVELOPES GRID -->
-    <div class="envelope-grid">
-        <!-- NEW: three months of us envelope - placed on top of OOPS section -->
-        <div class="envelope" onclick="openLetter('threeMonths')">
-            <span>three months of us 🎀</span>
-            <div class="stamp">🌸💖</div>
-        </div>
-        
-        <div class="envelope" onclick="openLetter('2month')">
-            <span>our 2 monthaversary! 🎉</span>
-            <div class="stamp">🌸</div>
-        </div>
-        
-        <div class="envelope" onclick="openLetter('miss')">
-            <span>when you miss me</span>
-            <div class="stamp">💌</div>
-        </div>
-
-        <div class="envelope" onclick="openLetter('bad')">
-            <span>when you have a bad day</span>
-            <div class="stamp">☁️</div>
-        </div>
-
-        <div class="envelope" onclick="openLetter('mad')">
-            <span>when you're mad</span>
-            <div class="stamp">😡</div>
-        </div>
-
-        <div class="envelope" onclick="openLetter('sad')">
-            <span>when you're sad</span>
-            <div class="stamp">☹️</div>
-        </div>
-
-        <div class="envelope" onclick="openLetter('sleep')">
-            <span>when you can't sleep</span>
-            <div class="stamp">🌙</div>
-        </div>
-
-        <div class="envelope emergency" onclick="openLetter('emergency')">
-            <span>🚨 emotional emergency</span>
-            <div class="stamp">🆘</div>
-        </div>
-
-        <div class="envelope" onclick="unlockSecret()">
-            <span>???</span>
-            <div class="stamp">🔐</div>
+    <!-- PASSWORD SCREEN -->
+    <div id="passwordScreen">
+        <div class="password-card">
+            <div class="heart-icon">💗</div>
+            <h2>"open me when" letters</h2>
+            <p style="color: #b3577a; margin-bottom: 25px;">but before you see, enter our special date</p>
+            <input type="password" id="passwordInput" placeholder="dd/mm/yy" maxlength="6">
+            <button onclick="checkPassword()">unlock</button>
         </div>
     </div>
 
-    <!-- COMING SOON BOX (still here, new letter is above it) -->
-    <div class="construction">
-        <div class="cute-box">
-            <h3>💌 OOPS! more letters coming 💌</h3>
-            <p>check back next month mylove</p>
-            <div class="sparkles">✨🌷✨</div>
+    <!-- MAIN CONTENT -->
+    <div id="mainContent">
+        <div class="main-header">
+            <h1>open me when...</h1>
+            <p>for my baby, with all my love 💕</p>
         </div>
+
+        <!-- ENVELOPES GRID -->
+        <div class="envelope-grid">
+            <!-- three months of us -->
+            <div class="envelope" onclick="openLetter('threeMonths')">
+                <span>three months of us 🎀</span>
+                <div class="stamp">🌸💖</div>
+            </div>
+
+            <!-- NEW: 4th month envelope -->
+            <div class="envelope" onclick="openLetter('4month')">
+                <span>4th month🌷</span>
+                <div class="stamp">🌷💖</div>
+            </div>
+            
+            <div class="envelope" onclick="openLetter('2month')">
+                <span>our 2 monthaversary! 🎉</span>
+                <div class="stamp">🌸</div>
+            </div>
+            
+            <div class="envelope" onclick="openLetter('miss')">
+                <span>when you miss me</span>
+                <div class="stamp">💌</div>
+            </div>
+
+            <div class="envelope" onclick="openLetter('bad')">
+                <span>when you have a bad day</span>
+                <div class="stamp">☁️</div>
+            </div>
+
+            <div class="envelope" onclick="openLetter('mad')">
+                <span>when you're mad</span>
+                <div class="stamp">😡</div>
+            </div>
+
+            <div class="envelope" onclick="openLetter('sad')">
+                <span>when you're sad</span>
+                <div class="stamp">☹️</div>
+            </div>
+
+            <div class="envelope" onclick="openLetter('sleep')">
+                <span>when you can't sleep</span>
+                <div class="stamp">🌙</div>
+            </div>
+
+            <div class="envelope emergency" onclick="openLetter('emergency')">
+                <span>🚨 emotional emergency</span>
+                <div class="stamp">🆘</div>
+            </div>
+
+            <div class="envelope" onclick="unlockSecret()">
+                <span>???</span>
+                <div class="stamp">🔐</div>
+            </div>
+        </div>
+
+        <!-- COMING SOON BOX -->
+        <div class="construction">
+            <div class="cute-box">
+                <h3>💌 OOPS! more letters coming 💌</h3>
+                <p>check back next month mylove</p>
+                <div class="sparkles">✨🌷✨</div>
+            </div>
+        </div>
+
+        <!-- Background Music Player -->
+        <audio id="bgMusic" loop src="Fallen Star.mp3"></audio>
+        <div id="musicToggle" onclick="toggleMusic()">🎵</div>
     </div>
-</div>
 
-<!-- ======================== -->
-<!-- ALL LETTER PAGES (existing ones + new three months letter) -->
-<!-- ======================== -->
+    <!-- ======================== -->
+    <!-- ALL LETTER PAGES -->
+    <!-- ======================== -->
 
-<!-- NEW: THREE MONTHS OF US LETTER -->
-<div id="threeMonths" class="letter-page">
-    <div class="letter-container">
-        <h2>three months of us 🎀</h2>
-        <!-- ✨ WRITE YOUR LETTER CONTENT INSIDE THE <p> TAG BELOW ✨ -->
-        <p>
-            my baby, three months already?? it feels like just yesterday i was falling for you all over again. 
-            every day with you is a new reason to smile, and i’m so lucky to call you mine. 
-            you make everything softer, brighter, and so full of love. 
-            i keep trying to write this in a way that sounds neat and put together but that’s not really how you make me feel. you make me feel a little messy in the best way, like my thoughts are all tumbled out and i don’t have to arrange them perfectly for you to understand. 
+    <!-- THREE MONTHS OF US -->
+    <div id="threeMonths" class="letter-page">
+        <div class="letter-container">
+            <h2>three months of us 🎀</h2>
+            <p>
+                my baby, three months already?? it feels like just yesterday i was falling for you all over again. 
+                every day with you is a new reason to smile, and i’m so lucky to call you mine. 
+                you make everything softer, brighter, and so full of love. 
+                i keep trying to write this in a way that sounds neat and put together but that’s not really how you make me feel. you make me feel a little messy in the best way, like my thoughts are all tumbled out and i don’t have to arrange them perfectly for you to understand. 
 
 three months. that’s not even a full season yet but somehow it feels like i’ve been carrying you with me for way longer. not in a heavy way. in the way where my brain automatically files things under stuff i wanna tell him later and my camera roll is starting to look like a museum of your adorable texts and the cutsie sneak peaks you give me of coconut. and your biceps or the snaps you send me, even the pictures of snow. i love that it’s all the quiet accumulation of you on little things in my life. the way you make crazy typos when you’re tired. the way you try to disguise the fact that you’re trying not to laugh at something stupid i said. the way you call me any nickname especially baby and add my before it like it’s something you’re cherishing gently.
 
@@ -514,7 +555,7 @@ i wanted to do something for today. i had all these ideas like two weeks ago and
 
 so i’m writing this. for us. for this little digital corner we made that’s just ours. because if there’s one thing i’ve learned in these three months, it’s that i want to remember everything. not just the big things ,the i love you’s and the firsts,but the tiny unremarkable seconds that are actually the whole point.
 
-like the first time we got comfortable with eachother and i realized i wasn’t trying or even needing to fill the air. like the way you warmed my heart without trying, or even made me cry (in a goof way) like it was just muscle memory already. like the night we stayed up way too late talking about nothing and i woke up the next morning with my phone still in my hand and a smile on my face that i couldn’t shake.
+like the first time we got comfortable with eachother and i realized i wasn’t trying or even needing to fill the air. like the way you warmed my heart without trying, or even made me cry (in a good way) like it was just muscle memory already. like the night we stayed up way too late talking about nothing and i woke up the next morning with my phone still in my hand and a smile on my face that i couldn’t shake.
 
 those are the things i’m trying to press between the pages of this letter. the stuff that doesn’t make it into a highlight but makes up the actual architecture of us.
 
@@ -524,7 +565,7 @@ so heres our three months in 5 moments/actions that are engraved to the back of 
 
 2. when you woke up and told me it was filled with chemicals. i was terrified i thought you ate something full of chemicals and something happened to you but baby i think i was just a silly little dream you had. CAUSE TILL THIS DAY I DONT KNOW WHAT YOU MEANT and i dont think you do either baby.
 
-1. how you never fail to treat me correctly, theres always always something so adorably sweet about my day and its because of you. the way you remind me how precious i am and how pretty you think your wallpaper is. but my personal favorite is how you always remind me that im strong and that youre so proud of me and that im your home. being your home just brings a type of joy to me that i cant physically explain but its there, theres something about knowing that im your source of comfort that makes me all soft and warm on the inside.
+3. how you never fail to treat me correctly, theres always always something so adorably sweet about my day and its because of you. the way you remind me how precious i am and how pretty you think your wallpaper is. but my personal favorite is how you always remind me that im strong and that youre so proud of me and that im your home. being your home just brings a type of joy to me that i cant physically explain but its there, theres something about knowing that im your source of comfort that makes me all soft and warm on the inside.
 
 4. the way we are alone i love the version of us that exists when it’s just us. when there’s no audience and we can be as soft or as stupid  or as freaky as we want. the laughing until it hurts (maybe for me only) the silence that’s not awkward but full. the way i dont have to act like i have energy around you it just all heals me.
 
@@ -547,15 +588,51 @@ it’s not wrapped in anything. it’s not a surprise. it’s just me, sitting h
 so finally, here’s to us. here’s to the tiny moments that are stacking up into something huge. here’s to the letters i keep writing you in this little corner of the internet.
 
 and here’s to the next three months, and the three after that, and all the quiet, ordinary, extraordinary days in between. i love you so much myheart 
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            </p>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- 2 month letter -->
-<div id="2month" class="letter-page">
-    <div class="letter-container">
-        <h2>our 2 monthaversary! 🎉</h2>
-        <p>hi my baby, i can’t believe it’s already been 2 months with you woaaahh. it still feels unreal to me how we randomly met and then boom we clicked instantly awh my baby☹️☹️ every single moment with you has been pure magic. you’ve made me live through all those movie love stories without me even having to ask for it, and honestly that’s the kind of love i’ll never get tired of, the kind that just happens naturally. i love you eo much i could seriously hug you forever and ever without letting go. over time you’ve become my favorite person, the only one i can trust with every part of me, which again CRAZY because i never thought i’d ever love or trust someone this much omg, and yet here i am in a relationship with the bestest person ever, and i honestly couldn’t ask for anyone or anything better than you. 
+    <!-- 4TH MONTH LETTER -->
+    <div id="4month" class="letter-page">
+        <div class="letter-container">
+            <h2>4th month🌷</h2>
+            <p>
+                hi my baby.
+
+this is the first time since we met that i didnt actually have anything planned for our monthaversary and woaah its 6:07pm 67676767 AYAYAYAYA but i still couldnt let it pass without saying something to you. im not even gonna lie im kinda disappointed in myself because if i didnt have these faaatt exams back to back for the past week i wouldve done something way bigger, something more us or even ME. or atleast something that matches how big you are in my life. but i guess this is me trying anyway, even if my brain is fried and my body is fighting me 😡😡😡 and i can barely think straight right now.
+
+but also 4 months?? actually insane. like how did time move this fast and this slow at the same time. it feels like we met yesterday but also like youve always been part of my life, like you existed somewhere in my days even before i knew you☹️☹️ you didnt enter my life loudly, you settled into it so naturally that i didnt even realize when you became everything.
+
+and i swear my favorite thing about us is how easy it is. not boring easy, not careless easy, but the kind of easy that comes from understanding eachother without having to explain everything twice, we dont argue wnd thats not because we ignore things but because we actually listen we actually care, we actually choose eachother every single time. its soft but strong so strong it pulls you in deeper and deeper but the best part is that i dont even wanna fight it i wanna sink deeper because when it comes to you the “too much” never exists. 
+     
+its really funny how i spent my life searching for love like ours or even someone like you. just someone AS CLOSE to perfect as you are, in my eyes youre the most perfect person ever and no one could ever compete with you. you’re the best in every way, you have every trait i could ever search for in a person and idk how i got this lucky with someone as amazing and patient and gentle as you are but i did and its the best thing ever. 
+
+
+youre not just my boyfriend, youre my best friend in the purest sense. youre the person i run to first, the one i want to tell everything to, the one who knows me in ways no one else does. with you i dont feel like i have to perform or filter myself, i just exist and thats enough, and that means more to me than anything else ever could.
+
+and the distance. 😡😡😡😡😡its really fat but it never made me doubt us, not even once. if anything it proved to me how real this is because if something can feel this close, this precious and this safe even when youre a billion km away, then what we have is stronger than something physical. being together in real life isnt what defines us, its just something im waiting for, something i dream about, AN ADDITION but not something i need to validate what we already are.
+
+the only times it hurts is when i wish i could hug you so badly that it actually aches, when i get overwhelmed or tired and all i want is to be in your arms for a second. but even then somehow you still reach me through your words, your actions , your presence, and you make it feel a little less heavy a little more bearable.
+
+and i need you to know that just because i didnt do something AS big this time doesnt mean you arent special to me anymore, because you are. really baby. youre not just special, youre everything to me. youre my comfort, my peace, my happiness on the days i cant even find it in myself. youre the person i choose without thinking, without hesitation, over and over again.
+
+loving you doesnt feel like an effort, it feels like breathing. it feels like something that just exists in me now, something permanent. 
+
+you became part of my life in a way that i cant imagine undoing, and honestly i wouldnt want to. EVER. 
+
+happy 4 months mylove. 
+i love you endlessly. 🤍
+            </p>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
+    </div>
+
+    <!-- 2 month letter -->
+    <div id="2month" class="letter-page">
+        <div class="letter-container">
+            <h2>our 2 monthaversary! 🎉</h2>
+            <p>hi my baby, i can’t believe it’s already been 2 months with you woaaahh. it still feels unreal to me how we randomly met and then boom we clicked instantly awh my baby☹️☹️ every single moment with you has been pure magic. you’ve made me live through all those movie love stories without me even having to ask for it, and honestly that’s the kind of love i’ll never get tired of, the kind that just happens naturally. i love you eo much i could seriously hug you forever and ever without letting go. over time you’ve become my favorite person, the only one i can trust with every part of me, which again CRAZY because i never thought i’d ever love or trust someone this much omg, and yet here i am in a relationship with the bestest person ever, and i honestly couldn’t ask for anyone or anything better than you. 
 
 you’re always so affectionate with me and you never fail to make me feel loved, whether it’s through your tiny gestures, your drawings of my favorite flowers when you can’t give them to me irl, your letters and paragraphs every night, your reminders of how much you love me every day, or the way you make me feel like i’m the perfectest person ever. i can’t even pick a favorite way because they’re all so precious in ways words just can’t capture. you’re the love of my life, the one i want to love again and again for the rest of my life. normally i get tired of loving people, but with you i feel like even the love i have in me isn’t even close to how much i love you. our love is so deep that even the connection of our souls can’t compare. you’re my forever, my one and only, and if it isn’t you it’s no one, and that’s exactly how i want it to stay.
 
@@ -564,81 +641,81 @@ and baby, i don’t say this enough, or at least not nearly as much as it should
 i’m so excited for everything we’ll share in the future. woahh summer you can’t forget summer HELLYEWH, just imagine how much we will end up kissing eachother every 3 seconds or tje 2 rounds woaaahh. okay but baby especially our kids awh i can’t wait for us to be parents because i promise you that you’ll be the bestest dad there is, just like you are the bestest boyfriend and future husband. i can already see us laughing so hard at bedtime stories that we made up for our kids, or building forts in the living room, or even baking together with you throwing flour at my face, and maybe one day explaining to our kids why their dad can’t physically say no to their mom because he loves her too much. here’s to many more months together myhearttt, many many months filled with chaos love laughter and all the little things that make us, well us.
 
 i love you so much, always and forever.💗</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- When You Miss Me -->
-<div id="miss" class="letter-page">
-    <div class="letter-container">
-        <h2>when you miss me</h2>
-        <p>If you’re missing me nownownow then that honestly makes my heart ache in the bestest way ever because It means what we have is real enough to be felt when we’re apart. It means I matter to you and that’s means the whole world to me. woaaah i matter to my boyfriend YAYAYAYYAYA AWHHH MY BABYY 
+    <!-- When You Miss Me -->
+    <div id="miss" class="letter-page">
+        <div class="letter-container">
+            <h2>when you miss me</h2>
+            <p>If you’re missing me nownownow then that honestly makes my heart ache in the bestest way ever because It means what we have is real enough to be felt when we’re apart. It means I matter to you and that’s means the whole world to me. woaaah i matter to my boyfriend YAYAYAYYAYA AWHHH MY BABYY 
 
 But don’t let missing me turn scary i promise ill be back oky. 😡😡 but baby a teenie weenie reminder that I’m not someone temporary or halfway here. I didn’t choose you by accident, and I’m not staying by coincidence. I chose you because I wanted to. and I will continue choosing you until my very last breath okay☹️☹️
 
 baby the best thing is that our distance doesn’t ruin our relationship and if anything it makes us stronger and  thats what i love most about it. its probably the only thing i like about our distance BOOOO☹️☹️☹️☹️but baby even if we’re not talking in that exact second, I still carry you with me in small ways throughout my day. So if the space feels loud, just remember I’m still here. im always always here woaaah i could be under your bed or in your closet WOAAAHH watch out baby im not going anywhere.</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- When You Have a Bad Day -->
-<div id="bad" class="letter-page">
-    <div class="letter-container">
-        <h2>when you have a bad day</h2>
-        <p>awh hi my poor babyy well im not sad now but when you open this youll either be having a bad day or you just opened this for fun but either way mylove bad days don’t cancel out who you are and they don’t erase any of your progress, effort, or your growth. sometimes the world is just exhausting and unfair and a big fat meanie thats meaner than it needs to be. and it’s okay if today felt like that
+    <!-- When You Have a Bad Day -->
+    <div id="bad" class="letter-page">
+        <div class="letter-container">
+            <h2>when you have a bad day</h2>
+            <p>awh hi my poor babyy well im not sad now but when you open this youll either be having a bad day or you just opened this for fun but either way mylove bad days don’t cancel out who you are and they don’t erase any of your progress, effort, or your growth. sometimes the world is just exhausting and unfair and a big fat meanie thats meaner than it needs to be. and it’s okay if today felt like that
 
 youre allowed to have bad days. and you’re allowed to feel disappointed or frustrated. but never ever let one hard day rewrite anything okay. you’re still super duper capable of everything and more. still growing and becoming everything you’re meant to be even if it doesn’t feel obvious right now.
 
 and baby tomorrow is always a clean page to restart because you deserve a fresh start.  no matter how today went, I’m still proud of you for trying. youre my baby and i promise to stay by your side no matter whattt MWAAAAHH IM KISS ATTACKING YOU</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- When You're Mad -->
-<div id="mad" class="letter-page">
-    <div class="letter-container">
-        <h2>when you're mad</h2>
-        <p>hii myheartt i know when you’re angry everything feels more intense than it probably is. your thoughts move faster and more impulsive and it’s like everything becomes bigger than it needs to be. I’m not here to act like your feelings aren’t valid but baby i want you to know that i think that
+    <!-- When You're Mad -->
+    <div id="mad" class="letter-page">
+        <div class="letter-container">
+            <h2>when you're mad</h2>
+            <p>hii myheartt i know when you’re angry everything feels more intense than it probably is. your thoughts move faster and more impulsive and it’s like everything becomes bigger than it needs to be. I’m not here to act like your feelings aren’t valid but baby i want you to know that i think that
 you’re such a good person, and I hate the idea of something small ruining your whole mood. but baby woaaah deep breaths okay you don’t have to respond immediately and you don’t have to fix everything now okay YAYAYYAYA calm okay baby 
 
 I love the way youre always so calm about everything regardless of how bad or big the thing is. even if you get a bit frustrated i know it still comes from your heart. and to me thats the cutest thing ever also baby youre softer than you pretend to be, and that softness is something I’ll always cherish and protect . and no matter what happens I’m still by your side.
 
 now, i want you to act towards this situation with the same calmness you treat me with because nothings ever ever worth your anger or irritation. i love you so much my precious boyyy</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- When You're Sad -->
-<div id="sad" class="letter-page">
-    <div class="letter-container">
-        <h2>when you're sad</h2>
-        <p>HI MY BABYYY If you’re reading this then I’m guessing today you feel booohoohoo or maybe again youre just opening this for fun but anyways mylove sometimes youre sad  for no clear reason but it just feels like too much. I wish I could sit next to you and hug you and kiss attack you with the biggest fattest kisses right now just to help you feel better but i cant
+    <!-- When You're Sad -->
+    <div id="sad" class="letter-page">
+        <div class="letter-container">
+            <h2>when you're sad</h2>
+            <p>HI MY BABYYY If you’re reading this then I’m guessing today you feel booohoohoo or maybe again youre just opening this for fun but anyways mylove sometimes youre sad  for no clear reason but it just feels like too much. I wish I could sit next to you and hug you and kiss attack you with the biggest fattest kisses right now just to help you feel better but i cant
 
 but baby you don’t need to explain yourself to anyone if you dont feel like it and you don’t need to act strong ay all. I KNOW O SAY RHIS ALOT but I care about you on your quiet days too but like especially on those days. youre not a burden for feeling things EVER EVER OKAY DONT EVEN THINK THAT OMG but baby youre human duh and everyone feels things like this and as your girlfriend its my collective responsibility to make sure youre doing amazing ( that was a fancy sentence) but baby just because youre with me that doesnr make everything amazing and i totally understand that so baby anytime you remember some things or feel a certain way towards anything im always here to listen and help you, i made these letters as a reminder that you can always come back to me regardless of the situation and that youll never ever ever EVERRR be a burden to me no matter what youre feeling or how stressful it is. one more thing, I love everything about you even when it makes you seem vulnerable.
 
 Whatever you’re feeling right now won’t last forever. feelings move even when they feel stuck. (not your feelings for me okay.) and even if it takes time, I’m not going anywhere. you don’t scare me away when you’re sad. you matter to me in every version of yourself the nonchalant one the tired one the quiet one the funny one and basically just all of you.</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- When You Can't Sleep -->
-<div id="sleep" class="letter-page">
-    <div class="letter-container">
-        <h2>when you can't sleep</h2>
-        <p>hi my sleepy babyyy i know deep down youre sleepy. I JUST DO MY GIRLFRIEND INSTINCT IS KICKING IN. your mind probably won’t stop racing but come sit here with me for a second or imagine it atleast.I know how it feels when your brain just won’t switch off replaying conversations in a good or bad way hmm orr maybeee eve imagining worst case scenarios( god forbid.) orr thinking about tomorrow before it even arrives.
+    <!-- When You Can't Sleep -->
+    <div id="sleep" class="letter-page">
+        <div class="letter-container">
+            <h2>when you can't sleep</h2>
+            <p>hi my sleepy babyyy i know deep down youre sleepy. I JUST DO MY GIRLFRIEND INSTINCT IS KICKING IN. your mind probably won’t stop racing but come sit here with me for a second or imagine it atleast.I know how it feels when your brain just won’t switch off replaying conversations in a good or bad way hmm orr maybeee eve imagining worst case scenarios( god forbid.) orr thinking about tomorrow before it even arrives.
 
 but you don’t need to solve tomorrow tonight. you don’t need to carry the whole future at idk what time. let your shoulders drop. unclench your jaw. Slow your breathing. Inhale slowly. exhale longer relax your face especially your eyebrows aand boom do it again.
 
 baby you probably need this sleep okay so hmm Imagine I’m next to you, wnd we’re cuddling baby and hmmmmm just talking quietly about nothing important i want yoi to know that you deserve peace and everything good in the world. WE DONT WANT YOUR CAKE TO HAVE CHEMICALS AGWIN BABY. so as for now your only responsibility is to sleep. I hope you drift off knowing you’re cared for and loved so very deeply</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- Emotional Emergency -->
-<div id="emergency" class="letter-page">
-    <div class="letter-container">
-        <h2>🚨 emotional emergency</h2>
-        <p>If you're here then hmm something went wrong so we pause okay.
+    <!-- Emotional Emergency -->
+    <div id="emergency" class="letter-page">
+        <div class="letter-container">
+            <h2>🚨 emotional emergency</h2>
+            <p>If you're here then hmm something went wrong so we pause okay.
 
 THEN we breathe okay.
 
@@ -653,15 +730,15 @@ and I'm by your side ALWAYS and forever
 
 Whatever you're feeling right now
 we’ll get through it TOGETHER okay just pinky promise to tell me whatevers wrong whenever you feel it okay i promise you i wont judge or get mad or anything i love you so much my baby</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<!-- Secret Letter -->
-<div id="secret" class="letter-page">
-    <div class="letter-container">
-        <h2>the one i never say enough</h2>
-        <p>This is the part where I tell you the things I don’t always say out loud but even if i do, to me they’re never too much to say
+    <!-- Secret Letter -->
+    <div id="secret" class="letter-page">
+        <div class="letter-container">
+            <h2>the one i never say enough</h2>
+            <p>This is the part where I tell you the things I don’t always say out loud but even if i do, to me they’re never too much to say
 
 okay baby i made this to remind you that i love you alot but if you actually ever end up forgetting how much i love you then woahhh ive failed as a girlfriend. BUT THATS NOT YOUR FAULT OKAY If you ever start doubting how much you mean to me read this very slowly wnd memorize it like that german poem you memorized in february. I don’t love you in a temporary way. I love you so much even in the moments where you question everything. in the way I think about you randomly during my day, in the way small things remind me of you, in the way I notice details about you that no one else does.
 
@@ -672,55 +749,68 @@ and all of that doesn’t fade because of one bad mood, one bad thought, or one 
 you always do these little things that make my day in some way or another and its the things like those that make me fall harder and harder for you. and just know baby youre the only thing on this earth that calms me and keeps me sane. idk how you do it bur you do it in a way so well that IDK ILL EXPLODE NOW. you get me so well you ARE the perfect person for me and i believe that if we were ever words in some other universe we would be those words that complete each other like soul and mate because there has never been a split second where my heart hasn’t felt complete with you around. AWWHHH but yes baby youre the love of my life and id choose you even if our memories of eachother now were erased ( GOD FORBID.) because even if my mind weren’t to recognize you my soul always will and thats the most important part ever.
 
 i hope this helped you even a bit but if it didn’t baby then id recommend you reading my valentines paragraph again because thats the closest ive ever felt to projecting my feelings for you okay my precious babyy☹️☹️</p>
-        <button class="back-btn" onclick="goBack()">close letter</button>
+            <button class="back-btn" onclick="goBack()">close letter</button>
+        </div>
     </div>
-</div>
 
-<script>
-// Password = 010126 (01/01/26)
-let wrongAttempts = 0;
+    <script>
+        // Password = 010126 (01/01/26)
+        let wrongAttempts = 0;
 
-function checkPassword() {
-    const password = document.getElementById("passwordInput").value;
-    if (password === "010126") {
-        document.getElementById("passwordScreen").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-    } else {
-        wrongAttempts++;
-        if (wrongAttempts === 1) alert("wrong password 💌 try again");
-        else if (wrongAttempts === 2) alert("hint: it's a special date... 🤍");
-        else alert("01/01/26 — the day everything started 💕");
-    }
-}
+        function checkPassword() {
+            const password = document.getElementById("passwordInput").value;
+            if (password === "010126") {
+                document.getElementById("passwordScreen").style.display = "none";
+                document.getElementById("mainContent").style.display = "block";
+            } else {
+                wrongAttempts++;
+                if (wrongAttempts === 1) alert("wrong password 💌 try again");
+                else if (wrongAttempts === 2) alert("hint: it's a special date... 🤍");
+                else alert("01/01/26 — the day everything started 💕");
+            }
+        }
 
-function openLetter(id) {
-    document.getElementById("mainContent").style.display = "none";
-    document.getElementById(id).style.display = "block";
-    window.scrollTo(0, 0);
-}
+        function openLetter(id) {
+            document.getElementById("mainContent").style.display = "none";
+            document.getElementById(id).style.display = "block";
+            window.scrollTo(0, 0);
+        }
 
-function goBack() {
-    document.querySelectorAll(".letter-page").forEach(page => page.style.display = "none");
-    document.getElementById("mainContent").style.display = "block";
-}
+        function goBack() {
+            document.querySelectorAll(".letter-page").forEach(page => page.style.display = "none");
+            document.getElementById("mainContent").style.display = "block";
+        }
 
-let secretClicks = 0;
-function unlockSecret() {
-    secretClicks++;
-    if (secretClicks === 1) alert("🤔 hmm...");
-    else if (secretClicks === 2) alert("💭 keep trying baby...");
-    else { 
-        openLetter("secret"); 
-        secretClicks = 0;
-    }
-}
+        let secretClicks = 0;
+        function unlockSecret() {
+            secretClicks++;
+            if (secretClicks === 1) alert("🤔 hmm...");
+            else if (secretClicks === 2) alert("💭 keep trying baby...");
+            else { 
+                openLetter("secret"); 
+                secretClicks = 0;
+            }
+        }
 
-// Press Enter to submit password
-document.getElementById("passwordInput").addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-        checkPassword();
-    }
-});
-</script>
+        // Music toggle
+        function toggleMusic() {
+            const music = document.getElementById("bgMusic");
+            const btn = document.getElementById("musicToggle");
+            if (music.paused) {
+                music.play();
+                btn.classList.add("playing");
+            } else {
+                music.pause();
+                btn.classList.remove("playing");
+            }
+        }
+
+        // Press Enter to submit password
+        document.getElementById("passwordInput").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkPassword();
+            }
+        });
+    </script>
 </body>
 </html>
